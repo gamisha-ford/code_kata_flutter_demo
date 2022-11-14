@@ -18,12 +18,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-
-      routes: {
+      initialRoute: '/',
+      onGenerateRoute: MyRouter.generateRoute,
+      /*routes: {
         '/': (context) => const MyHomePage(),
         '/profile': (context) => const MyProfile(userName: "", pwd: "",),
         '/lifecycle': (context) => const Lifecycle(value: "",),
-      },
+      },*/
     );
   }
 }

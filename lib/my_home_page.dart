@@ -12,6 +12,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +49,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   children: [
                     TextFormField(
+                      controller: usernameController,
                       decoration: const InputDecoration(
                           hintText: "Email", border: OutlineInputBorder()),
                     ),
                     const SizedBox(height: 20),
                     TextFormField(
+                      controller: passwordController,
                       obscureText: true,
                       decoration: const InputDecoration(
                           hintText: "Password", border: OutlineInputBorder()),
@@ -61,7 +65,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       onTap: () {
                         ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(content: Text("Login Success!")));
-                        Navigator.pushNamed(context, '/profile');
+                        Navigator.pushNamed(context, '/profile',
+                            arguments: MyProfile(
+                                userName: usernameController.text,
+                                pwd: passwordController.text));
                       },
                       child: Container(
                         alignment: Alignment.center,

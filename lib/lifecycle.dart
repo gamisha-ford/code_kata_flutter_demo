@@ -13,10 +13,23 @@ class Lifecycle extends StatefulWidget {
 class _LifecycleState extends State<Lifecycle> {
   int counter = 0;
 
+  void getData() async {
+    await Future.delayed(const Duration(seconds: 3), () {
+      print('Joseph Smith');
+    });
+
+    Future.delayed(const Duration(seconds: 2), () {
+      print('This is Joseph\'s bio');
+    });
+
+    print('statement');
+  }
+
   @override
   void initState() {
     super.initState();
     print('initState function ran');
+    getData();
   }
 
   @override
@@ -57,6 +70,7 @@ class _LifecycleState extends State<Lifecycle> {
                 const SizedBox(
                   height: 20,
                 ),
+                Text(widget.value),
               ]),
             ),
           ),
@@ -71,17 +85,4 @@ class _LifecycleState extends State<Lifecycle> {
     super.dispose();
     print('dispose function ran');
   }
-
-
-/*void getData(){
-    Future.delayed(const Duration(seconds: 3), () {
-      print('Joseph Smith');
-    });
-
-    Future.delayed(const Duration(seconds: 2), () {
-      print('This is Joseph\'s bio');
-    });
-
-    print('statement');
-  }*/
 }

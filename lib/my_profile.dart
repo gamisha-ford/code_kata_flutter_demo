@@ -5,7 +5,7 @@ class MyProfile extends StatefulWidget {
   final String userName;
   final String pwd;
 
-   const MyProfile({super.key, required this.userName, required this.pwd});
+  const MyProfile({super.key, required this.userName, required this.pwd});
 
   @override
   State<MyProfile> createState() => _MyProfileState();
@@ -33,10 +33,10 @@ class _MyProfileState extends State<MyProfile> {
                 const SizedBox(
                   height: 20,
                 ),
-                /*Text(
+                Text(
                   widget.userName,
                   style: const TextStyle(fontSize: 20.0),
-                ),*/
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -44,10 +44,10 @@ class _MyProfileState extends State<MyProfile> {
                 const SizedBox(
                   height: 20,
                 ),
-               /* Text(
+                Text(
                   widget.pwd,
                   style: const TextStyle(fontSize: 20.0),
-                ),*/
+                ),
                 const SizedBox(
                   height: 100,
                 ),
@@ -61,7 +61,8 @@ class _MyProfileState extends State<MyProfile> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/lifecycle');
+                    Navigator.pushNamed(context, '/lifecycle',
+                        arguments: phoneController.text);
                   },
                   child: Container(
                     alignment: Alignment.center,
